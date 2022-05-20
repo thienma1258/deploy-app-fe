@@ -54,12 +54,13 @@ const Home: NextPage = () => {
             <th>#</th>
             <th>IP Address</th>
             <th>City</th>
-            <th>Region</th>
+            <th>Country</th>
             <th>Visit Count</th>
+            <th>ISP</th>
           </tr>
         </thead>
         <tbody>
-            {dataTop.map((data: { ip_address: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined; city: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined; country: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined; count: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined; }, i: number) => {
+            {dataTop.map((data: { ip_address: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined; city: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined; country: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined; count: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined; connection: { isp_name: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined; }; }, i: number) => {
               console.log(data);
               // Return the element. Also pass key
               return (
@@ -70,6 +71,7 @@ const Home: NextPage = () => {
                   <td>{data.city}</td>
                   <td>{data.country}</td>
                   <td>{data.count}</td>
+                  <td> {data.connection ? data.connection.isp_name : ""}</td>
                 </tr>
               );
             })}
